@@ -1,0 +1,7 @@
+{
+  "python.defaultInterpreterPath": "c:\\Users\\marco\\Desktop\\identylog-nfc\\.venv\\Scripts\\python.exe",
+  "python.pythonPath": "c:\\Users\\marco\\Desktop\\identylog-nfc\\.venv\\Scripts\\python.exe",
+  "python.analysis.extraPaths": [
+    "./backend"
+  ]
+}

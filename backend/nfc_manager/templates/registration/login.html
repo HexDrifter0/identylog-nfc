@@ -1,0 +1,61 @@
+<!-- login.html - Versión mejorada -->
+{% extends 'nfc_manager/base.html' %}
+
+{% block title %}Iniciar sesión - Identylog{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="/static/nfc_manager/css/base.css">
+<style>
+    .btn {
+        display: inline-block;
+        width: 100%;
+        padding: 16px 24px;
+        background: #4338ca;
+        color: #ffffff;
+        border: none;
+        border-radius: 100px;
+        font-size: 16px;
+        font-weight: 600;
+        cursor: pointer;
+        text-align: center;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+    .btn:hover {
+        transform: translateY(-2px);
+    }
+    .form-control {
+        width: 100%;
+        padding: 14px;
+        border: 2px solid #e0e0e0;
+        border-radius: 16px;
+        font-size: 16px;
+        margin: 8px 0 16px;
+    }
+    
+    .form-control:focus {
+        outline: none;
+        border-color: #667eea;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<h2 style="text-align: center; margin-bottom: 24px;">🔐 Iniciar sesión</h2>
+
+<form method="POST">
+    {% csrf_token %}
+    
+    <label for="id_username">👤 Usuario</label>
+    <input type="text" id="id_username" name="username" class="form-control" placeholder="Tu nombre de usuario" required autofocus>
+    
+    <label for="id_password">🔒 Contraseña</label>
+    <input type="password" id="id_password" name="password" class="form-control" placeholder="Tu contraseña" required>
+    
+    <button type="submit" class="btn">🚪 Entrar a mi cuenta</button>
+</form>
+
+<p style="text-align: center; margin-top: 24px;">
+    ¿No tienes cuenta? <a href="{% url 'registro' %}" style="color:#667eea;">Regístrate gratis aquí</a>
+</p>
+{% endblock %}
