@@ -1,0 +1,55 @@
+<!-- activate.html - Pantalla para activar un soporte NFC -->
+{% extends 'nfc_manager/base.html' %}
+
+{% block title %}Activar tu recuerdo{% endblock %}
+
+{% block extra_css %}
+<style>
+.btn {
+    display: inline-block;
+    width: 100%;
+    padding: 16px 24px;
+    background: #4338ca;
+    color: #ffffff;
+    border: none;
+    border-radius: 100px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    transform: translateY(-2px);
+}
+.card {
+    background: #f9fafb;
+    border-radius: 28px;
+    padding: 24px;
+    margin: 20px 0;
+    border: 1px solid #f3f4f6;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<h2 style="text-align: center; margin-bottom: 24px;">🎁 ¡Tienes un recuerdo!</h2>
+<p style="text-align: center; color: #666; margin-bottom: 24px;">
+    Este soporte todavía no está activado. Introduce el código que viene en la tarjeta para reclamarlo.
+</p>
+
+<div class="card">
+    <form method="POST">
+        {% csrf_token %}
+        <label for="activation_code">🔑 Código de activación</label>
+        <input id="activation_code" type="text" name="activation_code" placeholder="Ej: AMOR-8372" required autocomplete="off">
+        
+        <button type="submit" class="btn">✨ Activar mi recuerdo</button>
+    </form>
+</div>
+
+<p style="text-align: center; font-size: 14px; color: #999; margin-top: 24px;">
+    ¿No tienes código? El código viene impreso en la tarjeta que acompañaba a tu pulsera/pegatina.
+</p>
+{% endblock %}
