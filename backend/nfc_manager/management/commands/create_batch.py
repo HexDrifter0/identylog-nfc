@@ -91,4 +91,4 @@ class Command(BaseCommand):
                 self.stdout.write(f'\n   {i+1}. URL: {item["url"]}')
                 self.stdout.write(f'      Código: {item["codigo"]}')
         
-        self.stdout.write(self.style.SUCCESS(f'\n✅ ¡LOTE COMPLETADO!\n'))
+        self.stdout.write(self.style.SUCCESS('\n✅ ¡LOTE COMPLETADO!\n'))

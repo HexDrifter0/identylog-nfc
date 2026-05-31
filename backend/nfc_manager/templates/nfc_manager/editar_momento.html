@@ -3,36 +3,10 @@
 
 {% block title %}Editar mi recuerdo{% endblock %}
 
-{% block extra_css %}
-<style>
-.btn {
-    display: inline-block;
-    width: 100%;
-    padding: 16px 24px;
-    background: #4338ca;
-    color: #ffffff;
-    border: none;
-    border-radius: 100px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-.btn:hover {
-    transform: translateY(-2px);
-}
-.btn-outline {
-    background: white;
-    color: #1d4ed8;
-    border: 2px solid #1d4ed8;
-}
-</style>
-{% endblock %}
+{% block extra_css %}{% endblock %}
 
 {% block content %}
-<h2 style="margin-bottom: 24px;">✏️ Editar tu recuerdo</h2>
+<h2 class="mb-24">✏️ Editar tu recuerdo</h2>
 
 <form method="POST">
     {% csrf_token %}
@@ -42,7 +16,7 @@
     
     <label for="youtube_url">📹 URL de YouTube</label>
     <input id="youtube_url" type="url" name="youtube_url" value="{{ momento.youtube_url }}" placeholder="https://www.youtube.com/watch?v=..." required>
-    <p style="font-size: 12px; color: #999; margin-top: -12px;">
+    <p class="hint">
         💡 Sube tu vídeo a YouTube como "No listado" y pega el enlace aquí
     </p>
     
@@ -51,9 +25,12 @@
     
     <label for="recipient_name">👤 Para quién es (opcional)</label>
     <input id="recipient_name" type="text" name="recipient_name" value="{{ momento.recipient_name }}" placeholder="Ej: Para mi hermana">
+
+    <label for="sender_name">✍️ Quién lo envía (opcional)</label>
+    <input id="sender_name" type="text" name="sender_name" value="{{ momento.sender_name }}" placeholder="Ej: Con cariño, María">
     
     <button type="submit" class="btn">💾 Guardar cambios</button>
 </form>
 
-<a href="{% url 'dashboard' %}" class="btn btn-outline">← Volver a mis recuerdos</a>
+<a href="{% url 'dashboard' %}" class="btn btn-outline mt-8">← Volver a mis recuerdos</a>
 {% endblock %}

@@ -3,18 +3,17 @@ import { useState } from 'react';
 function App() {
   const [publicToken, setPublicToken] = useState('');
   const [activateToken, setActivateToken] = useState('');
-  const [activationCode, setActivationCode] = useState('');
 
   const handlePublicSubmit = (event) => {
     event.preventDefault();
     if (!publicToken.trim()) return;
-    window.location.href = `/t/${publicToken.trim()}/`;
+    globalThis.location.href = `/t/${publicToken.trim()}/`;
   };
 
   const handleActivateSubmit = (event) => {
     event.preventDefault();
     if (!activateToken.trim()) return;
-    window.location.href = `/activar/${activateToken.trim()}/`;
+    globalThis.location.href = `/activar/${activateToken.trim()}/`;
   };
 
   return (

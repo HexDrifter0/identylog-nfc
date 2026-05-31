@@ -2,89 +2,17 @@
 
 {% block title %}Mis recuerdos{% endblock %}
 
-{% block extra_css %}
-<style>
-.btn {
-    display: inline-block;
-    width: 100%;
-    padding: 16px 24px;
-    background: #4338ca;
-    color: #ffffff;
-    border: none;
-    border-radius: 100px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-.btn:hover {
-    transform: translateY(-2px);
-}
-.btn-outline {
-    background: white;
-    color: #1d4ed8;
-    border: 2px solid #1d4ed8;
-}
-.card {
-    background: #f9fafb;
-    border-radius: 28px;
-    padding: 24px;
-    margin: 20px 0;
-    border: 1px solid #f3f4f6;
-}
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%;
-    height: 0;
-    overflow: hidden;
-    border-radius: 24px;
-    margin: 20px 0;
-    background: #000;
-}
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-}
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 16px;
-    margin: 20px 0;
-}
-.stat-card {
-    background: linear-gradient(135deg, #667eea10 0%, #764ba210 100%);
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-}
-.stat-number {
-    font-size: 32px;
-    font-weight: 800;
-    color: #667eea;
-}
-.stat-label {
-    font-size: 12px;
-    color: #6b7280;
-    margin-top: 8px;
-}
-</style>
-{% endblock %}
+{% block extra_css %}{% endblock %}
 
 {% block content %}
-<h2 style="margin-bottom: 8px;">Hola, {{ user.username }}! 👋</h2>
-<p style="color: #666; margin-bottom: 24px;">Estos son tus soportes NFC activados</p>
+<h2 class="mb-8">Hola, {{ user.username }}! 👋</h2>
+<p class="text-muted mb-24">Estos son tus soportes NFC activados</p>
 
 {% if momentos %}
     {% for momento in momentos %}
     <div class="card">
         <h3>📦 {{ momento.nfc_item.batch.support_type|title }} #{{ forloop.counter }}</h3>
-        <p style="color: #666; font-size: 14px;">Token: {{ momento.nfc_item.public_token }}</p>
+        <p class="token-label">Token: {{ momento.nfc_item.public_token }}</p>
         
         {% if momento.title %}
             <p><strong>Título:</strong> {{ momento.title }}</p>
@@ -95,11 +23,11 @@
                 <iframe src="{{ momento.youtube_embed_url }}" title="Vídeo de YouTube" allowfullscreen></iframe>
             </div>
         {% else %}
-            <p style="color: #999;">📹 Aún no has añadido ningún vídeo</p>
+            <p class="no-video">📹 Aún no has añadido ningún vídeo</p>
         {% endif %}
 
         {% if momento.views_count > 0 %}
-            <div class="stats-grid" style="margin-top: 16px;">
+            <div class="stats-grid">
                 <div class="stat-card">
                     <div class="stat-number">{{ momento.views_count }}</div>
                     <div class="stat-label">visualizaciones</div>
@@ -107,24 +35,24 @@
             </div>
         {% endif %}
 
-        <a href="{% url 'editar_momento' momento.id %}" class="btn btn-outline" style="margin-top: 8px;">
+        <a href="{% url 'editar_momento' momento.id %}" class="btn btn-outline mt-8">
             ✏️ Editar vídeo/mensaje
         </a>
     </div>
     {% endfor %}
 {% else %}
-    <div class="card" style="text-align: center;">
-        <p style="color: #999; margin-bottom: 16px;">📭 No tienes soportes activados todavía</p>
+    <div class="card text-center">
+        <p class="empty-state">📭 No tienes soportes activados todavía</p>
         <p>¿Tienes un código de activación?</p>
-        <p style="margin: 16px 0; background: #f0f0ff; padding: 12px; border-radius: 12px;">
+        <p class="info-box">
             💡 Escanea el NFC o abre:<br>
             <code>http://127.0.0.1:8000/t/TU_TOKEN</code>
         </p>
-        <p style="font-size: 12px; color: #999;">El token está grabado en tu pulsera/pegatina NFC</p>
+        <p class="token-text">El token está grabado en tu pulsera/pegatina NFC</p>
     </div>
 {% endif %}
 
-<a href="/logout/" class="btn btn-outline" style="margin-top: 16px;">
+<a href="/logout/" class="btn btn-outline mt-16">
     🚪 Cerrar sesión
 </a>
 {% endblock %}

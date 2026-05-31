@@ -1,10 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Identylog - {% block title %}Recuerdos NFC{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'nfc_manager/css/base.css' %}">
+    {% block extra_css %}{% endblock %}
+</head>
 <body>
 
     <!-- Navbar -->
     <nav class="navbar">
         <div class="container">
-            <div class="logo" style="margin-bottom: 0;">
-                <h1 style="font-size: 1.5rem;">✨ Identylog</h1>
+            <div class="logo">
+                <h1>✨ Identylog</h1>
             </div>
             <div class="nav-links">
                 {% if user.is_authenticated %}
