@@ -4,6 +4,12 @@
     "./backend"
   ],
   "css.styleSheets": [
-    "backend/nfc_manager/static/nfc_manager/css/base.css"
-  ]
+    "C:\\Users\\marco\\Desktop\\identylog-nfc\\backend\\nfc_manager\\static\\nfc_manager\\css\\base.css"
+  ],
+  "html-css.styleSheets": [
+    "C:\\Users\\marco\\Desktop\\identylog-nfc\\backend\\nfc_manager\\static\\nfc_manager\\css\\base.css"
+  ],
+  "html-css.autoGenerateFile": false,
+  "postman.settings.dotenv-detection-notification-visibility": false
+}
 }
