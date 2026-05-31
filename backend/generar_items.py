@@ -105,7 +105,7 @@ if __name__ == '__main__':
     
     try:
         batch_id = int(batch_id)
-    except:
+    except ValueError:
         print("❌ El ID debe ser un número")
         exit()
     

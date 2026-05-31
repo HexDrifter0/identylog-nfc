@@ -3,6 +3,28 @@
   "python.analysis.extraPaths": [
     "./backend"
   ],
+ "python.analysis.exclude": [
+    "**/.venv",
+    "**/.vscode/extensions/**",
+    "**/node_modules/**",
+    "**/__pycache__/**",
+    "**/.*"
+  ],
+  "sonarlint.rules": {
+    "python:S1134": { "level": "off" },
+    "python:S1135": { "level": "off" },
+    "python:S2876": { "level": "off" },
+    "python:S5722": { "level": "off" }
+  },
+  "sonarlint.pathIgnorePatterns": [
+    "**/.vscode/**"
+  ],
+  "files.exclude": {
+    "**/.vscode/extensions": true
+  },
+  "files.watcherExclude": {
+    "**/.vscode/extensions/**": true
+  },
   "css.styleSheets": [
     "C:\\Users\\marco\\Desktop\\identylog-nfc\\backend\\nfc_manager\\static\\nfc_manager\\css\\base.css"
   ],
@@ -11,5 +33,4 @@
   ],
   "html-css.autoGenerateFile": false,
   "postman.settings.dotenv-detection-notification-visibility": false
-}
 }
